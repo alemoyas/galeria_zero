@@ -11,3 +11,5 @@ def prueba(request):
         
         return render(request, "core/prueba.html", datos)
 
+def index(request):
+        return render(request, "core/index.html")

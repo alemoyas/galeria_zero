@@ -3,12 +3,13 @@ from django.urls.resolvers import URLPattern
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import  prueba
+from .views import  prueba, index
 
 
 
 urlpatterns = [
     path('prueba/',prueba,name="prueba"),
+    path('index/',index,name="index"),
 ]
 
 if settings.DEBUG:
