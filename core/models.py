@@ -20,6 +20,9 @@ class Obra(models.Model):
     historia = models.TextField(verbose_name="Historia")
     img = models.ImageField(upload_to='obras', null=True)
     idautor  = models.ForeignKey(Autor, on_delete=models.CASCADE)
+    precio = models.IntegerField(verbose_name="precio",  default=0)
+    fecha = models.IntegerField(verbose_name="anno",  default=0)
+
 
 
     def __str__(self):
