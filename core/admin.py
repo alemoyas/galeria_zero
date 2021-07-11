@@ -5,6 +5,10 @@ from django.contrib import admin
 class obraAdmin(admin.ModelAdmin):
     list_display = ('idobra', 'nombre', 'idautor')
 
-admin.site.register(Autor)
+class autorAdmin(admin.ModelAdmin):
+    list_display = ('idautor', 'nombre')
+
+
+admin.site.register(Autor, autorAdmin)
 admin.site.register(Obra, obraAdmin)
 
