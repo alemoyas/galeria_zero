@@ -14,3 +14,6 @@ def prueba(request):
 
 def index(request):
         return render(request, "core/index.html")
+
+def nadvar(request):
+        return render(request, "core/nadvar.html")
