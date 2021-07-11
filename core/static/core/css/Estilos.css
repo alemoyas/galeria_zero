@@ -1,0 +1,71 @@
+div.bloque_fondo {
+  margin-top: 5%;
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-bottom: 10%;
+}
+div.bloque_fondo_2 {
+  width: 40%;
+  margin: 1% 1%;
+  float: right;
+  margin-top: 2%;
+  margin-bottom: 4%;
+}
+div.bloque_fondo_3 {
+  width: 40%;
+  margin: 5% 5%;
+  float: left;
+  margin-top: 5%;
+  margin-bottom: 4%;
+}
+div.bloque_centro {
+  margin: 50%;
+}
+img.izquierda {
+  float: left;
+  margin-right: 5%;
+}
+div.bloque_fondo_4 {
+  margin-top: 5%;
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  color:white;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  height: 100px;
+  width: 100px;
+  outline: black;
+  background-image: none;
+}
+
+.carousel-control-next-icon:after {
+  content: ">";
+  font-size: 55px;
+  color: rgb(10, 0, 0);
+}
+
+.carousel-control-prev-icon:after {
+  content: "<";
+  font-size: 55px;
+  color: rgb(8, 0, 0);
+}
+.futer {
+  color: white;
+  height: 15%;
+  min-height: 100%;
+  background-color: black;
+  text-align: center;
+}
+#myBtn {
+  width: 300px;
+  padding: 10px;
+  font-size:20px;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  bottom: 50px;
+  z-index: 9999;
+}
