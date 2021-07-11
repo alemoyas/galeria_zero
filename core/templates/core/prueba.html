@@ -7,28 +7,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style> 
-        .thg{
-            max-width: 100px;
-            max-height: 100px;
+        img{
+            max-width: 50px;
+            max-height: 50px;
         }
     </style>
 </head>
 <body>
     <h1>Hola probando</h1>
-    {% for  autor in autores %}
-        {% for obra in  obras%}
-            {% if  obra.idobra == autor.idautor%}
-                <p>{{obra.nombre}}</p>
-                <br>
-                <img src="{{obra.img.url}}"  alt="" class="thg">
-            {% endif %}
-            
-        {% endfor %}
-        
+
+    <h2>autores</h2>
+    {% for autor in autores %}
+        <img src="{{autor.img.url}}"  alt="" class"thg">
     {% endfor %}
 
-    
-    
+    <h2>obras</h2>
+    {% for obra in obras %}
+        <img src="{{obra.img.url}}"  alt="" class"thg">
+    {% endfor %}
+
 </body>
 </html>
 
@@ -51,6 +48,17 @@ for x in (y for y in items if y > 10):
         {% endfor %}
     {% endfor %}
 
+
+ {% for obra in obras %}
+        {% for autor in autores %}
+            {% if autor.nombre == obra.idautor%}.
+                <p>{{autor.nombre}}</p>
+            {% endif %}
+        {% endfor %}
+        <img src="{{obra.img.url}}"  alt="" class"thg">
+
+    {% endfor %}
+    
 <p>{{obra.nombre}}</p>
                 <img src="{{obra.img.url}}"  alt="">
 -->

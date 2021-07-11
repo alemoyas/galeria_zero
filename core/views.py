@@ -7,6 +7,7 @@ from .models import Autor, Obra
 def prueba(request):
         autores = Autor.objects.all()
         obras =   Obra.objects.all()
+
         datos = {"autores" : autores, "obras" : obras}
         
         return render(request, "core/prueba.html", datos)
