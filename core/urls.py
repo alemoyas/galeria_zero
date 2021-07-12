@@ -9,7 +9,7 @@ from .views import  prueba, index, navbar, contacto, vista_dinamica_autores, vis
 
 urlpatterns = [
     path('prueba/',prueba,name="prueba"),
-    path('',index,name="index"),
+    path('index/',index,name="index"),
     path('navbar/',navbar,name="navbar"),
     path('contacto/',contacto,name="contacto"),
 

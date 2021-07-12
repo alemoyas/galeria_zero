@@ -23,17 +23,19 @@ def prueba(request):
 
 
 def vista_dinamica_obras(request, id):
+        autores = Autor.objects.all()
         obra = Obra.objects.get(idobra=id)
         autor = Autor.objects.get(idautor=Obra.objects.get(idobra=id).autor_id)
 
-        contexto = {'obra': obra,  'autor':autor}
+        contexto = {'obra': obra,  'autor':autor, 'autores':autores}
         return render(request, 'core/ficha_obra.html', contexto)
 
 def vista_dinamica_autores(request, id):
+        autores = Autor.objects.all()
         autor = Autor.objects.get(idautor=id)
 
 
-        contexto = {'autor':autor}
+        contexto = {'autor':autor, 'autores':autores}
         return render(request, 'core/ficha_autor.html', contexto)
 
 
