@@ -22,14 +22,19 @@ def prueba(request):
         return render(request, "core/prueba.html", datos)
 
 
-def vista_dinamica(request, id):
+def vista_dinamica_obras(request, id):
         obra = Obra.objects.get(idobra=id)
-        idautor = Obra.objects.get(idobra=id).autor_id
-        autor = Autor.objects.get(idautor=idautor)
+        autor = Autor.objects.get(idautor=Obra.objects.get(idobra=id).autor_id)
 
-        contexto = {'obra': obra, 'idautor' : idautor, 'autor':autor}
+        contexto = {'obra': obra,  'autor':autor}
         return render(request, 'core/ficha_obra.html', contexto)
 
+def vista_dinamica_autores(request, id):
+        autor = Autor.objects.get(idautor=id)
+
+
+        contexto = {'autor':autor}
+        return render(request, 'core/ficha_autor.html', contexto)
 
 
 def index(request):
@@ -43,10 +48,4 @@ def contacto(request):
 
 
 
-
-def galeria_picasso(request):
-        
-
-        
-        return render(request, "core/galerias/galeria_picasso.html", )
 
