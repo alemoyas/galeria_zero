@@ -86,7 +86,7 @@ def form_obra(request):
 
         if request.method == 'POST':
                 #recoge los datos
-                formulario = ObraForm(request.POST)
+                formulario = ObraForm(data=request.POST, files=request.FILES)
                 if formulario.is_valid():
                         formulario.save()
                         datos['mensaje'] = "Guardado Correctamente"
