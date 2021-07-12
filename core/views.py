@@ -43,3 +43,6 @@ def ficha_autorretrato_picasso(request):
         obra = Obra.objects.get(idobra=1)
         datos = {"obra" : obra}
         return render(request, "core/fichas/ficha_autorretrato_picasso.html",datos)
+
+def galeria_picasso(request):
+        return render(request, "core/galerias/galeria_picasso.html")

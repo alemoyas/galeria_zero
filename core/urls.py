@@ -3,7 +3,7 @@ from django.urls.resolvers import URLPattern
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import  prueba, index, nadvar, contacto, ficha_autorretrato_picasso
+from .views import  prueba, index, nadvar, contacto, ficha_autorretrato_picasso, galeria_picasso
 
 
 
@@ -12,7 +12,8 @@ urlpatterns = [
     path('index/',index,name="index"),
     path('nadvar/',nadvar,name="nadvar"),
     path('contacto/',contacto,name="contacto"),
-    path('ficha_autorretrato_picasso/',ficha_autorretrato_picasso,name="ficha_autorretrato_picasso")
+    path('ficha_autorretrato_picasso/',ficha_autorretrato_picasso,name="ficha_autorretrato_picasso"),
+    path('galeria_picasso/',galeria_picasso,name="galeria_picasso")
 ]
 
 if settings.DEBUG:
