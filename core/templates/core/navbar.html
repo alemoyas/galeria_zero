@@ -28,17 +28,16 @@
                 Categorias
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="./categorias/categoria_escultores.html">Categoria Escultores</a></li>
-                <li><a class="dropdown-item" href="./categorias/categoria_orfebres.html">Categoria Orfebres</a></li>
-                <li><a class="dropdown-item" href="./categorias/categoria_pintores.html">Categoria Pintores</a></li>
-                <li><a class="dropdown-item" href="./categorias/categoria_tejedor.html">Categoria Tejedores</a></li>
+                {% for categoria in categorias %}
+                  <li><a class="dropdown-item" href="../categoria/{{categoria.idcategoria}}">Categoria {{categoria.nombre}}</a></li>
+                {% endfor %}
+
               </ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Galerias
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Van_Gogh.html">Galeria de Vincent van Gogh</a></li>
               {% for autor in  autores%}
                 <li><a class="dropdown-item" href="../galeria/{{autor.idautor}}">Galeria de {{autor.nombre}}</a></li>
               

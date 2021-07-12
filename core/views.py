@@ -31,16 +31,18 @@ def vista_dinamica_galeria(request, id):
         autores = Autor.objects.all()
         obras =   Obra.objects.filter(autor_id = id)
         autor = Autor.objects.get(idautor=id)
+        categorias = Categoria.objects.all()
 
-        contexto = {'obras': obras,  'autor':autor, 'autores':autores}
+        contexto = {'obras': obras,  'autor':autor, 'autores':autores, 'categorias':categorias}
         return render(request, 'core/galeria_autor.html', contexto)
 
 def vista_dinamica_autores(request, id):
         autores = Autor.objects.all()
         autor = Autor.objects.get(idautor=id)
+        categorias = Categoria.objects.all()
 
 
-        contexto = {'autor':autor, 'autores':autores}
+        contexto = {'autor':autor, 'autores':autores, 'categorias':categorias}
         return render(request, 'core/ficha_autor.html', contexto)
 
 
@@ -56,9 +58,9 @@ def vista_dinamica_galeria_categoria(request, id):
 
 def index(request):
         autores = Autor.objects.all()
+        categorias = Categoria.objects.all()
 
-
-        datos = {"autores" : autores}
+        datos = {"autores" : autores, 'categorias':categorias}
         
         return render(request, "core/index.html", datos)
 
@@ -66,8 +68,9 @@ def index(request):
 
 
 def navbar(request):
+        categorias = Categoria.objects.all()
         autores = Autor.objects.all()
-        datos = {"autores" : autores}
+        datos = {"autores" : autores, 'categorias':categorias}
         return render(request, "core/navbar.html", datos)
 
 def contacto(request):
