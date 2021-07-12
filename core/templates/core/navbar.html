@@ -39,13 +39,10 @@
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <li><a class="dropdown-item" href="./galerias/galeria_generica_Van_Gogh.html">Galeria de Vincent van Gogh</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Picasso.html">Galeria de Picasso</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Andres_Lupin.html">Galeria de Andres</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Donatello.html">Galeria de Donatello</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Leandro.html">Galeria de Leandro</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Marcelo.html">Galeria de Marcelo</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Miguel_angel.html">Galeria de Miguel Angel</a></li>
-                <li><a class="dropdown-item" href="./galerias/galeria_generica_Pablo.html">Galeria de Pablo</a></li>
+              {% for autor in  autores%}
+                <li><a class="dropdown-item" href="../galeria/{{autor.idautor}}">Galeria de {{autor.nombre}}</a></li>
+              
+              {% endfor %}
               </ul>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
