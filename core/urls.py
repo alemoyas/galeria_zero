@@ -3,7 +3,7 @@ from django.urls.resolvers import URLPattern
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import  prueba, index, navbar, contacto, vista_dinamica_autores, vista_dinamica_obras
+from .views import  prueba, index, navbar, contacto, vista_dinamica_autores, vista_dinamica_obras, vista_dinamica_galeria
 
 
 
@@ -20,7 +20,8 @@ urlpatterns = [
 
     #paths dinamicos 
     path('obras/<int:id>',vista_dinamica_obras, name="obra"),
-    path('autores/<int:id>',vista_dinamica_autores, name="autor")
+    path('autores/<int:id>',vista_dinamica_autores, name="autor"),
+    path('galeria/<int:id>',vista_dinamica_galeria, name="galeria")
 ]
 
 if settings.DEBUG:

@@ -7,16 +7,13 @@ def prueba(request):
 
         #cosas de picasso
         picasso = Autor.objects.get(idautor=1)
-        picasso_obras = [Obra.objects.get(idobra=1), Obra.objects.get(idobra=2), Obra.objects.get(idobra=3), Obra.objects.get(idobra=4)]
-
+        picasso_obras = Obra.objects.filter(autor_id = 1) #filtrar para objketido id
 
         #todos los autores todas las obras
         autores = Autor.objects.all()
         obras =   Obra.objects.all()
 
-
         datos = {"picasso" : picasso, "autores" : autores, "obras" : obras, "picasso_obras" : picasso_obras}
-        
         
 
         return render(request, "core/prueba.html", datos)
@@ -29,6 +26,14 @@ def vista_dinamica_obras(request, id):
 
         contexto = {'obra': obra,  'autor':autor, 'autores':autores}
         return render(request, 'core/ficha_obra.html', contexto)
+
+def vista_dinamica_galeria(request, id):
+        autores = Autor.objects.all()
+        obras =   Obra.objects.filter(autor_id = id)
+        autor = Autor.objects.get(idautor=id)
+
+        contexto = {'obras': obras,  'autor':autor, 'autores':autores}
+        return render(request, 'core/galeria_autor.html', contexto)
 
 def vista_dinamica_autores(request, id):
         autores = Autor.objects.all()
