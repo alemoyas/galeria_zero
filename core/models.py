@@ -34,12 +34,8 @@ class Obra(models.Model):
     precio = models.IntegerField(verbose_name="precio",  default=0)
     fecha = models.IntegerField(verbose_name="anno",  default=0)
 
-
-
-
-
-
     def __str__(self):
+        return  self.idobra
         return  self.nombre
         return  self.historia
 
