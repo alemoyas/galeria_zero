@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views.generic.detail import DetailView
-from .models import Autor, Obra
+from .models import Autor, Categoria, Obra
 
 
 def prueba(request):
@@ -42,6 +42,16 @@ def vista_dinamica_autores(request, id):
 
         contexto = {'autor':autor, 'autores':autores}
         return render(request, 'core/ficha_autor.html', contexto)
+
+
+def vista_dinamica_galeria_categoria(request, id):
+
+        autores =  Autor.objects.filter(categoria_id = id)
+        autor = Autor.objects.get(idautor=id)
+        categoria = Categoria.objects.get(idcategoria=id)
+
+        contexto = {'autores': autores,  'autor':autor, 'categoria':categoria}
+        return render(request, 'core/galeria_categoria.html', contexto)
 
 
 def index(request):
