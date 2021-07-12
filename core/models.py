@@ -22,7 +22,7 @@ class Autor(models.Model):
     def __str__(self):
         return  self.nombre
         return  self.historia
-        return  self.img
+
 
 
 class Obra(models.Model):
@@ -35,7 +35,6 @@ class Obra(models.Model):
     fecha = models.IntegerField(verbose_name="anno",  default=0)
 
     def __str__(self):
-        return  self.idobra
         return  self.nombre
         return  self.historia
 
