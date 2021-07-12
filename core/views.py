@@ -78,17 +78,18 @@ def contacto(request):
         return render(request, "core/vistas_extras/contacto.html")
 
 def form_obra(request):
-        datos={
-             'form':ObraForm
-                
-        }
+
+        categorias = Categoria.objects.all()
+        autores = Autor.objects.all()
+
+        datos={'form':ObraForm, 'categorias':categorias, 'autores':autores}
 
         if request.method == 'POST':
-            #recoge los datos
-            formulario = ObraForm(request.POST)
-            if formulario.is_valid:
-                formulario.save()
-                datos['mensaje'] = "Guardado Correctamente"
+                #recoge los datos
+                formulario = ObraForm(request.POST)
+                if formulario.is_valid():
+                        formulario.save()
+                        datos['mensaje'] = "Guardado Correctamente"
 
         return render(request,'core/form_obra.html',datos)
 
