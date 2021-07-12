@@ -9,7 +9,7 @@ from .views import  prueba, index, nadvar, contacto, vista_dinamica_autores, vis
 
 urlpatterns = [
     path('prueba/',prueba,name="prueba"),
-    path('index/',index,name="index"),
+    path('',index,name="index"),
     path('nadvar/',nadvar,name="nadvar"),
     path('contacto/',contacto,name="contacto"),
 
@@ -19,8 +19,8 @@ urlpatterns = [
 
 
     #paths dinamicos 
-    path('obras/<int:id>',vista_dinamica_obras,name="obra"),
-    path('autores/<int:id>',vista_dinamica_autores,name="autor")
+    path('obras/<int:id>',vista_dinamica_obras, name="obra"),
+    path('autores/<int:id>',vista_dinamica_autores, name="autor")
 ]
 
 if settings.DEBUG:

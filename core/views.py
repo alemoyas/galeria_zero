@@ -38,10 +38,20 @@ def vista_dinamica_autores(request, id):
 
 
 def index(request):
-        return render(request, "core/index.html")
+        autores = Autor.objects.all()
+
+
+        datos = {"autores" : autores}
+        
+        return render(request, "core/index.html", datos)
+
+
+
 
 def nadvar(request):
-        return render(request, "core/nadvar.html")
+        autores = Autor.objects.all()
+        datos = {"autores" : autores}
+        return render(request, "core/nadvar.html", datos)
 
 def contacto(request):
         return render(request, "core/vistas_extras/contacto.html")

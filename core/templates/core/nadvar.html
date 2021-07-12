@@ -52,14 +52,11 @@
                 Artistas
               </a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <li><a class="dropdown-item" href="./Pintores/ficha_autor_Van_Gogh.html">Vincent van Gogh</a></li>
-                <li><a class="dropdown-item" href="./Pintores/ficha_autor_Picasso.html">Picasso</a></li>
-                <li><a class="dropdown-item" href="../escultores/donatello.html">Donatello</a></li>
-                <li><a class="dropdown-item" href="./escultores/miguel_angel.html">Miguel Angel</a></li>
-                <li><a class="dropdown-item" href="./orfebres/marcelo_cumplido.html">Marcelo</a></li>
-                <li><a class="dropdown-item" href="./orfebres/pablo_rodriguez.html">Pablo</a></li>
-                <li><a class="dropdown-item" href="./tejedores/leandro_bonatelli.html">Leandro</a></li>
-                <li><a class="dropdown-item" href="./tejedores/andres_lupin.html">Andres Lupin</a></li>
+              {% for autor in  autores%}
+                <li><a class="dropdown-item" href="autores/{{autor.idautor}}">{{autor.nombre}}</a></li>
+              
+              {% endfor %}
+                
               </ul>
               <li class="nav-item">
                   <a class="nav-link" href="./vistas/Iniciar_sesion.html">Iniciar sesion</a>
