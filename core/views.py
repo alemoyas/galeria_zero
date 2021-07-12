@@ -24,7 +24,7 @@ def prueba(request):
 
 def vista_dinamica(request, id):
         obra = Obra.objects.get(idobra=id)
-        idautor = Obra.objects.get(idobra=id).idautor_id
+        idautor = Obra.objects.get(idobra=id).autor_id
         autor = Autor.objects.get(idautor=idautor)
 
         contexto = {'obra': obra, 'idautor' : idautor, 'autor':autor}

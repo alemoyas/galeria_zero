@@ -3,7 +3,7 @@ from .models import Autor, Obra
 from django.contrib import admin
 
 class obraAdmin(admin.ModelAdmin):
-    list_display = ('idobra', 'nombre', 'idautor')
+    list_display = ('idobra', 'nombre', 'autor')
 
 class autorAdmin(admin.ModelAdmin):
     list_display = ('idautor', 'nombre')
