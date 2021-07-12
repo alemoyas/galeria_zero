@@ -9,56 +9,14 @@
       <div class="row">
           <div class="col-1"></div>
           <div class="col-11">
-            <h3>{{obra.nombre}}</h3>
-            <h3>{{obra.precio}}</h3>
+            <h3>{{obra.nombre}} {{obra.precio}} $</h3>
           </div>
         <div class="col-sm-1"></div>
-        <div class="col-sm-4 "><img  src="./Autoretrato_Picasso_3.jpg" style="border-radius: 5%; height:100%; width:100%;"></div> 
+        <div class="col-sm-4 "><img  src="{{obra.img.url}}" style="border-radius: 5%; height:100%; width:100%;"></div> 
         <div class="col-sm-6"> 
-          <p>Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.
-            Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.</p>
+          <p>{{obra.historia}}</p>
+        </div>
 
-          <p>Donec id elit non mi porta
-            gravida at eget metus. Eti
-            am porta sem malesuada magn
-            a mollis euismod. Donec sed
-            odio dui.
-            Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.
-            Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.</p>
-
-          <p>Donec id elit non mi porta
-            gravida at eget metus. Eti
-            am porta sem malesuada magn
-            a mollis euismod. Donec sed
-            odio dui.
-            Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.
-            Donec id elit non mi porta
-            gravida at eget metus. Etiam
-            porta sem malesuada magna mo
-            llis euismod. Donec sed odio dui.</p>
-
-          <p>Donec id elit non mi porta
-            gravida at eget metus. Eti
-            am porta sem malesuada magn
-            a mollis euismod. Donec sed
-            odio dui.</p>
-        </div> 
-       
         <div class="col-sm-1"></div>
         </div>
 
@@ -66,7 +24,7 @@
       <div class="row">
         <div class="col-12"><br></div>
         <div class="col-md-1 col-0"></div>
-        <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="../../galerias/galeria_generica_Picasso.html">Ir a Galeria del autor</a></div>
+        <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="#">Ir a Galeria del autor</a></div>
         <div class="col-md-2 col-2"></div>
         <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="../../vistas/Formulario.html"> Contacto</a></div>
         <div class="col-md-1 col-0"></div>
