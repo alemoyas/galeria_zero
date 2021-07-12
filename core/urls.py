@@ -3,14 +3,14 @@ from django.urls.resolvers import URLPattern
 from django.conf.urls.static import static
 from django.conf import settings
 
-from .views import  prueba, index, nadvar, contacto, vista_dinamica_autores, vista_dinamica_obras
+from .views import  prueba, index, navbar, contacto, vista_dinamica_autores, vista_dinamica_obras
 
 
 
 urlpatterns = [
     path('prueba/',prueba,name="prueba"),
     path('',index,name="index"),
-    path('nadvar/',nadvar,name="nadvar"),
+    path('navbar/',navbar,name="navbar"),
     path('contacto/',contacto,name="contacto"),
 
 

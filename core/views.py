@@ -48,10 +48,10 @@ def index(request):
 
 
 
-def nadvar(request):
+def navbar(request):
         autores = Autor.objects.all()
         datos = {"autores" : autores}
-        return render(request, "core/nadvar.html", datos)
+        return render(request, "core/navbar.html", datos)
 
 def contacto(request):
         return render(request, "core/vistas_extras/contacto.html")
