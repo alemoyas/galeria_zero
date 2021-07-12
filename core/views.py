@@ -33,3 +33,8 @@ def index(request):
 
 def nadvar(request):
         return render(request, "core/nadvar.html")
+
+def ficha_autorretrato_picasso(request):
+        obra = Obra.objects.get(idobra=1)
+        datos = {"obra" : obra}
+        return render(request, "core/fichas/ficha_autorretrato_picasso.html",datos)
