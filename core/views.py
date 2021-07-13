@@ -185,3 +185,7 @@ def eliminar_autor(request, id):
         autor.delete()
 
         return redirect(to="mod_autores")
+
+
+def modificar(request):
+        return render(request, "core/modificar.html")
