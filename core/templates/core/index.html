@@ -4,7 +4,7 @@
   <div class="bloque_fondo">
                 <div class="container-fluid">
                   <div class="row"> 
-                    <div class="col"><h1 align = "center">Destacados</h1></div> 
+                    <div class="col"><h1 align = "center">Destacados  d {{numeros.0}}</h1></div> 
                     <div class="col-sm-12">  
                       <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-indicators">
@@ -14,13 +14,13 @@
                         </div>
                           <div class="carousel-inner">
                             <div class="carousel-item active">
-                              <a href="./obras/Donatello/ficha_obra_juan_evangelista.html" ><img src="{% static 'core/img/img_idx/Autorretrato_VanGogh_3.jpg' %}" class="d-block mx-auto img-fluid" alt="..." width="45%" height="50%" style="border-radius: 5%;"></a>
+                              <a href="../obras/{{numeros.0}}" ><img src="../media/{{obras.0.img}}" class="d-block mx-auto img-fluid" alt="..." width="45%" height="50%" style="border-radius: 5%;"></a>
                             </div>
                             <div class="carousel-item">
-                              <a href="./obras/picasso/ficha_obra_autoretrato.html" ><img src="{% static 'core/img/img_idx/Autorretrato_VanGogh_3.jpg' %}" class="d-block mx-auto img-fluid " alt="..." width="60%" height="100%" style="border-radius: 5%;"></a>
+                              <a href="../obras/{{numeros.0}}" ><img src="../media/{{obras.1.img}}" class="d-block mx-auto img-fluid " alt="..." width="60%" height="100%" style="border-radius: 5%;"></a>
                             </div>
                             <div class="carousel-item">
-                              <a href="./obras/vangogh/ficha_obra_los_girasoles.html" ><img src="{% static 'core/img/img_idx/Autorretrato_VanGogh_3.jpg' %}" class="d-block mx-auto img-fluid" alt="..." width="60%" height="100%" style="border-radius: 5%;"></a>
+                              <a href="../obras/{{obras_carusel.3}}" ><img src="{% static 'core/img/img_idx/Autorretrato_VanGogh_3.jpg' %}" class="d-block mx-auto img-fluid" alt="..." width="60%" height="100%" style="border-radius: 5%;"></a>
                             </div>
                           </div>
                         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
@@ -30,6 +30,7 @@
                         <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
                           <span class="carousel-control-next-icon" aria-hidden="true"></span>
                           <span class="visually-hidden">Next</span>
+                          
                         </button>
                       </div>
                     </div>  
@@ -59,4 +60,14 @@
                 </div>
                 <br><br><br>    
   </div> 
+
+  {% for num in numeros %}
+    <p>{{num}}</p>
+  {% endfor %}
+
+
+  {% for obra in obras %}
+    <p>ass</p>
+  {% endfor %}
+  
 {% endblock %}

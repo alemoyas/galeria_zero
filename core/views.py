@@ -2,6 +2,7 @@ from core.forms import AutorForm, ObraForm
 from django.shortcuts import render, redirect  
 from django.views.generic.detail import DetailView
 from .models import Autor, Categoria, Obra
+import random
 
 
 def prueba(request):
@@ -58,13 +59,22 @@ def vista_dinamica_galeria_categoria(request, id):
 
 
 def index(request):
+
         autores = Autor.objects.all()
         categorias = Categoria.objects.all()
 
-        datos = {"autores" : autores, 'categorias':categorias}
-        
-        return render(request, "core/index.html", datos)
+        numeros = random.sample(list(Obra.objects.values_list('idobra', flat=True)), 3)
 
+        filtro = {'idobra': numeros[0], 'idobra': numeros[1], 'idobra': numeros[2], }
+        print(filtro)
+        
+        obras =   list(Obra.objects.filter(**filtro))
+
+
+        datos = {"autores" : autores, 'categorias':categorias, 'numeros':numeros, 'obras':obras}
+        
+
+        return render(request, "core/index.html", datos)
 
 
 
