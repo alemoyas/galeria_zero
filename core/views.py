@@ -1,4 +1,4 @@
-from core.forms import ObraForm
+from core.forms import AutorForm, ObraForm
 from django.shortcuts import render, redirect  
 from django.views.generic.detail import DetailView
 from .models import Autor, Categoria, Obra
@@ -128,7 +128,52 @@ def eliminar_obra(request, id):
 
         return redirect(to="mod_obras")
 
+#Agregar autor
+def form_autor(request):
+
+        categorias = Categoria.objects.all()
+        obras = Obra.objects.all()
+
+        data={'form':AutorForm, 'categorias':categorias, 'obras':obras}
+
+        if request.method == 'POST':
+                #recoge los datos
+                formulario = AutorForm(data=request.POST, files=request.FILES)
+                if formulario.is_valid():
+                        formulario.save()
+                        data['mensaje'] = "Guardado Correctamente"
+
+        return render(request,'core/form_autor.html',data)
+
+#modificar autor
+def form_mod_autor(request,id):
+        obras = Obra.objects.all()
+        categorias = Categoria.objects.all()
+
+        autor = Autor.objects.get(idautor = id)
+        data = {'form':AutorForm(instance=autor), 'obras':obras , 'categorias':categorias}
+
+        if request.method == 'POST':
+                formulario = AutorForm(data=request.POST, files=request.FILES, instance=autor)
+                if formulario.is_valid():
+                        formulario.save()
+                        data['mensaje'] = "Modificado correctamente"
+                        data['form'] = formulario        
 
 
+        return render(request,'core/form_mod_obra.html',data)
 
+def mod_autores(request):
+        obras = Obra.objects.all()
+        categorias = Categoria.objects.all()
+        autores = Autor.objects.all()
 
+        datos={"autores":autores , 'obras':obras, 'categorias':categorias}
+        return render(request, "core/mod_autores.html", datos)
+
+#Eliminar autor
+def eliminar_autor(request, id):
+        autor = Autor.objects.get(idautor = id)
+        autor.delete()
+
+        return redirect(to="mod_autores")

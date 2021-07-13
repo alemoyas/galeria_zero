@@ -1,0 +1,23 @@
+{% extends "core/navbar.html" %}
+{% block content %}
+    <br></br>
+
+    <h1>Modificar Autor</h1>
+    <form action="" method="POST" id="formulario" enctype="multipart/form-data">
+
+        {% csrf_token %}
+        <div class="col-md-4">
+            <div class="form-group row">
+                {{form.as_table}}
+            </div>
+        </div>
+
+        <input type="submit" class="btn btn-danger" id="modificar" value="modificar">
+        <input type="reset" class="btn btn-primary" id="limpiar" value="limpiar">
+    </form>
+    <div class="alert alert-success" role="alert">
+        {{mensaje}}
+    </div>
+
+<br></br>
+{% endblock %}

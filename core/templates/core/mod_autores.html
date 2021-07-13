@@ -8,18 +8,18 @@
         <div class="row">
             <div class="col-12"><br></div>
         </div>
-{% for ob in obras %}        
+{% for aut in autores %}        
     <div class="container-fluid">
         <div class="row">
             <div class="col-1"></div>
             <div class="col-11">
-                <h3>{{ob.nombre}} {{ob.precio}} $</h3>
+                <h3>{{aut.nombre}}</h3>
             </div>
         
             <div class="col-sm-1"></div>
-            <div class="col-sm-4 "><img  src="{{ob.img.url}}" style="border-radius: 5%; height:100%; width:100%;"></div> 
+            <div class="col-sm-4 "><img  src="{{aut.img.url}}" style="border-radius: 5%; height:100%; width:100%;"></div> 
             <div class="col-sm-6"> 
-                <p>{{ob.historia}}</p>
+                <p>{{aut.historia}}</p>
 
             </div>
 
@@ -30,9 +30,9 @@
         <div class="row">
             <div class="col-12"><br></div>
             <div class="col-md-1 col-0"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'form_mod_obra' ob.idobra %}">Ir a Modificar</a></div>
+            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'form_mod_autor' aut.idautor %}">Ir a Modificar</a></div>
             <div class="col-md-2 col-2"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'eliminar_obra' ob.idobra %}"> Eliminar obra</a></div>
+            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'eliminar_autor' aut.idautor %}"> Eliminar Autor</a></div>
             <div class="col-md-1 col-0"></div>
         </div>
     </div>
