@@ -75,7 +75,7 @@ def navbar(request):
         return render(request, "core/navbar.html", datos)
 
 def contacto(request):
-        return render(request, "core/vistas_extras/contacto.html")
+        return render(request, "core/contacto.html")
 
 #Agregar Obra
 def form_obra(request):
