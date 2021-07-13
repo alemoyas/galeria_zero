@@ -50,12 +50,14 @@ def vista_dinamica_autores(request, id):
 
 
 def vista_dinamica_galeria_categoria(request, id):
+        categorias = Categoria.objects.all()
+        autores = Autor.objects.all()
 
-        autores =  Autor.objects.filter(categoria_id = id)
+        autores_match =  Autor.objects.filter(categoria_id = id)
         autor = Autor.objects.get(idautor=id)
         categoria = Categoria.objects.get(idcategoria=id)
 
-        contexto = {'autores': autores,  'autor':autor, 'categoria':categoria}
+        contexto = {'autores_match': autores_match,  'autor':autor, 'categoria':categoria, 'categorias':categorias, 'autores':autores}
         return render(request, 'core/galeria_categoria.html', contexto)
 
 
@@ -200,11 +202,20 @@ def eliminar_autor(request, id):
 
 #vista modificar
 def modificar(request):
-        return render(request, "core/modificar.html")
+        categorias = Categoria.objects.all()
+        autores = Autor.objects.all()
+
+        datos={"autores":autores , 'categorias':categorias}
+
+        return render(request, "core/modificar.html", datos)
 
 #vista agregar
 def agregar(request):
-        return render(request, "core/agregar.html")
+        categorias = Categoria.objects.all()
+        autores = Autor.objects.all()
+
+        datos={"autores":autores , 'categorias':categorias}
+        return render(request, "core/agregar.html", datos)
 
 def chicago(request):
         obras = Obra.objects.all()
