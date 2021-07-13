@@ -8,25 +8,19 @@
         <div class="col-2 mx-auto"></div>
     </div>
 
-
+   
     {% for obra in obras %}
-    
-    
-    <div class="row align-items-center h-100">
-        <div class="col-2 mx-auto"></div>
-        <div class="col-6 mx-auto">
-            <div class="jumbotron" style='aling'>
-                <img clas='mx-auto  img-fluid 'src="{{obra.img.url}}" alt="Lights" height="70%" width="90%" style="border-radius: 5%;">
+        <div class="row h-100 justify-content-center align-items-center">
+            <div class="card my-3 mx-2" style="width: 18rem;">
+                <img src="{{obra.img.url}}" class="card-img-top" alt="..." >
+                <div class="card-body" style="justify-content: center;">
+                <h5 class="card-title">{{obra.nombre}}</h5>
+                <a href="../obras/{{obra.idobra}}" class="btn btn-primary">Ir a la obra</a>
+                </div>
             </div>
-                <a type='button'  role="button" href="../obras/{{obra.idobra}}" style='align-center'>{{obra.nombre}}</a> 
-        </div>
-        <div class="col-2 mx-auto"></div>
-    </div>
-</div>
-
-
+        </div> 
 
     {% endfor %}
-
+    </div>
 {% endblock %}
 
