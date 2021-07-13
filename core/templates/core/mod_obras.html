@@ -5,38 +5,36 @@
 
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12"><br></div>
-        </div>
-{% for ob in obras %}        
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-11">
-                <h3>{{ob.nombre}} {{ob.precio}} $</h3>
-            </div>
-        
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4 "><img  src="{{ob.img.url}}" style="border-radius: 5%; height:100%; width:100%;"></div> 
-            <div class="col-sm-6"> 
-                <p>{{ob.historia}}</p>
 
-            </div>
 
-            <div class="col-sm-1"></div>
-        </div>
+    <table class="table">
+    
+    <thead>
+    
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">imagen</th>
+        <th scope="col">nombre</th>
+        <th scope="col">autor</th>
+        <th scope="col">precio</th>
+        <th scope="col">fecha</th>
+        <th scope="col"></th>
+        <th scope="col"></th>     
+        </tr>
+    </thead>
 
-    </div>
-        <div class="row">
-            <div class="col-12"><br></div>
-            <div class="col-md-1 col-0"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'form_mod_obra' ob.idobra %}">Ir a Modificar</a></div>
-            <div class="col-md-2 col-2"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'eliminar_obra' ob.idobra %}"> Eliminar obra</a></div>
-            <div class="col-md-1 col-0"></div>
-        </div>
-    </div>
-    <br>
-{% endfor %}
+    <tbody>
+        {% for obra in obras %}
+        <th scope="row">{{obra.idobra}}</th>
+        <td><img src="../media/{{obra.img}}"  alt="..."  width="100%" height="100%" style="border-radius: 5%; max-height: 28px; max-width: 28px; min-width: 28px; min-height: 28px;"></td>
+        <td><a href="../obras/{{obra.idobra}}">{{obra.nombre}}</a></td>
+        <td>{{obra.autor}}</td>
+        <td>{{obra.precio}}</td>
+        <td>{{obra.fecha}}</td>
+        <td><a type='button' class="btn btn-danger" role="button" style="font-size : 10px; width: 100%; height: 30px;" href="{% url 'eliminar_obra' obra.idobra %}"> Eliminar Obra</a></td>
+        <td><a type='button' class="btn btn-primary" role="button" style="font-size : 10px; width: 100%; height: 30px;" href="{% url 'form_mod_obra' obra.idobra %}">Ir a Modificar</a></td>
+    </tbody>
+    {% endfor %}
+    </table>
+
 {%endblock%}
