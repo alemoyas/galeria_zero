@@ -197,9 +197,13 @@ def eliminar_autor(request, id):
 
         return redirect(to="mod_autores")
 
-
+#vista modificar
 def modificar(request):
         return render(request, "core/modificar.html")
+
+#vista agregar
+def agregar(request):
+        return render(request, "core/agregar.html")
 
 def chicago(request):
         obras = Obra.objects.all()

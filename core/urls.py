@@ -2,7 +2,7 @@ from django.urls import path
 from django.urls.resolvers import URLPattern
 from django.conf.urls.static import static
 from django.conf import settings
-from .views import  form_autor, form_mod_autor, modificar, prueba, index, navbar, contacto, vista_dinamica_autores, vista_dinamica_obras, vista_dinamica_galeria, vista_dinamica_galeria_categoria, form_obra, form_mod_obra, mod_obras, eliminar_obra, form_autor, form_mod_autor, mod_autores, eliminar_autor, modificar, chicago
+from .views import  form_autor, form_mod_autor, modificar, prueba, index, navbar, contacto, vista_dinamica_autores, vista_dinamica_obras, vista_dinamica_galeria, vista_dinamica_galeria_categoria, form_obra, form_mod_obra, mod_obras, eliminar_obra, form_autor, form_mod_autor, mod_autores, eliminar_autor, modificar, chicago, agregar
 
 
 
@@ -38,8 +38,10 @@ urlpatterns = [
     path('mod-autores/',mod_autores,name="mod_autores"),
     path('eliminar-autor/<id>',eliminar_autor,name="eliminar_autor"),
     
-    #path modificar
+    #path modificar y agregar
     path('modificar/',modificar,name="modificar"),
+    path('agregar/',agregar,name="agregar"),
+    
 ]
 
 if settings.DEBUG:
