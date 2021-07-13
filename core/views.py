@@ -90,7 +90,11 @@ def navbar(request):
         return render(request, "core/navbar.html", datos)
 
 def contacto(request):
-        return render(request, "core/contacto.html")
+        autores = Autor.objects.all()
+        categorias = Categoria.objects.all()
+        datos={'categorias':categorias, 'autores':autores}
+
+        return render(request, "core/contacto.html", datos)
 
 #Agregar Obra
 def form_obra(request):
