@@ -25,8 +25,9 @@ def vista_dinamica_obras(request, id):
         autores = Autor.objects.all()
         obra = Obra.objects.get(idobra=id)
         autor = Autor.objects.get(idautor=Obra.objects.get(idobra=id).autor_id)
+        categorias = Categoria.objects.all()
 
-        contexto = {'obra': obra,  'autor':autor, 'autores':autores}
+        contexto = {'obra': obra,  'autor':autor, 'autores':autores, 'categorias':categorias}
         return render(request, 'core/ficha_obra.html', contexto)
 
 def vista_dinamica_galeria(request, id):
