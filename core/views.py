@@ -96,10 +96,11 @@ def form_obra(request):
 
 #Modificar Obra
 def form_mod_obra(request,id):
+        autores = Autor.objects.all()
+        categorias = Categoria.objects.all()
+
         obra = Obra.objects.get(idobra = id)
-        data = {
-                'form':ObraForm(instance=obra)
-        }
+        data = {'form':ObraForm(instance=obra), 'autores':autores , 'categorias':categorias}
 
         if request.method == 'POST':
                 formulario = ObraForm(data=request.POST, files=request.FILES, instance=obra)
@@ -112,10 +113,11 @@ def form_mod_obra(request,id):
         return render(request,'core/form_mod_obra.html',data)
 
 def mod_obras(request):
+        autores = Autor.objects.all()
+        categorias = Categoria.objects.all()
         obras = Obra.objects.all()
-        datos={
-                "obras":obras
-        }
+
+        datos={"obras":obras , 'autores':autores, 'categorias':categorias}
         return render(request, "core/mod_obras.html", datos)
 
 
