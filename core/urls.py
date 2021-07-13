@@ -8,7 +8,7 @@ from .views import  form_autor, form_mod_autor, modificar, prueba, index, navbar
 
 urlpatterns = [
     path('prueba/',prueba,name="prueba"),
-    path('index/',index,name="index"),
+    path('',index,name="index"),
     path('navbar/',navbar,name="navbar"),
     path('contacto/',contacto,name="contacto"),
     path('chicago/',chicago,name="chicago"),
