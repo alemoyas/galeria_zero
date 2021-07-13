@@ -1,42 +1,38 @@
 {% extends "core/navbar.html" %}
 
 {% load static %}
+{%block title%} Modificar y eliminar obras{% endblock %}
 
-{%block title%} Modificar autores{% endblock %}
 
 {% block content %}
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12"><br></div>
-        </div>
-{% for aut in autores %}        
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-1"></div>
-            <div class="col-11">
-                <h3>{{aut.nombre}}</h3>
-            </div>
-        
-            <div class="col-sm-1"></div>
-            <div class="col-sm-4 "><img  src="{{aut.img.url}}" style="border-radius: 5%; height:100%; width:100%;"></div> 
-            <div class="col-sm-6"> 
-                <p>{{aut.historia}}</p>
 
-            </div>
 
-            <div class="col-sm-1"></div>
-        </div>
+    <table class="table">
+    
+    <thead>
+    
+        <tr>
+        <th scope="col">id</th>
+        <th scope="col">imagen</th>
+        <th scope="col">nombre</th>
+        <th scope="col">autor</th>
+        <th scope="col">precio</th>
+        <th scope="col">fecha</th>
+        <th scope="col"></th>
+        <th scope="col"></th>     
+        </tr>
+    </thead>
 
-    </div>
-        <div class="row">
-            <div class="col-12"><br></div>
-            <div class="col-md-1 col-0"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'form_mod_autor' aut.idautor %}">Ir a Modificar</a></div>
-            <div class="col-md-2 col-2"></div>
-            <div class="col-md-4 col-5"><a type='button' class="btn btn-primary" role="button" href="{% url 'eliminar_autor' aut.idautor %}"> Eliminar Autor</a></div>
-            <div class="col-md-1 col-0"></div>
-        </div>
-    </div>
-    <br>
-{% endfor %}
+    <tbody>
+        {% for autor in autores %}
+        <th scope="row">{{autor.idobra}}</th>
+        <td><img src="../media/{{autor.img}}"  alt="..."  width="100%" height="100%" style="border-radius: 5%; max-height: 28px; max-width: 28px; min-width: 28px; min-height: 28px;"></td>
+        <td><a href="../obras/{{autor.idobra}}">{{autor.nombre}}</a></td>
+        <td>{{autor.categoria}}</td>
+        <td><a type='button' class="btn btn-danger" role="button" style="font-size : 10px; width: 100%; height: 30px;" href="{% url 'eliminar_autor' autor.idautor %}"> Eliminar autor</a></td>
+        <td><a type='button' class="btn btn-primary" role="button" style="font-size : 10px; width: 100%; height: 30px;" href="{% url 'form_mod_autor' autor.idautor %}">Ir a Modificar</a></td>
+    </tbody>
+    {% endfor %}
+    </table>
+
 {%endblock%}

@@ -166,11 +166,12 @@ def form_autor(request):
 
 #modificar autor
 def form_mod_autor(request,id):
+        autores = Autor.objects.all()
         obras = Obra.objects.all()
         categorias = Categoria.objects.all()
 
         autor = Autor.objects.get(idautor = id)
-        data = {'form':AutorForm(instance=autor), 'obras':obras , 'categorias':categorias}
+        data = {'form':AutorForm(instance=autor), 'obras':obras , 'categorias':categorias, 'autores':autores}
 
         if request.method == 'POST':
                 formulario = AutorForm(data=request.POST, files=request.FILES, instance=autor)
