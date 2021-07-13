@@ -63,13 +63,19 @@ def index(request):
         autores = Autor.objects.all()
         categorias = Categoria.objects.all()
 
+        obras_aleatorias = [random.choice(Obra.objects.filter(autor_id = random.choice(Autor.objects.filter(categoria_id = 2)))), 
+        random.choice(Obra.objects.filter(autor_id = random.choice(Autor.objects.filter(categoria_id = 1)))), 
+        random.choice(Obra.objects.filter(autor_id = random.choice(Autor.objects.filter(categoria_id = 4)))), 
+        random.choice(Obra.objects.filter(autor_id = random.choice(Autor.objects.filter(categoria_id = 3))))]
+        
         numeros = random.sample(list(Obra.objects.values_list('idobra', flat=True)), 3)
         numeros.sort()
 
 
+
         #filtra por muchas cosas, sirve!
-        obras  = Obra.objects.filter(idobra__in=[numeros[0],numeros[1], numeros[2]]) 
-        datos = {"autores" : autores, 'categorias':categorias, 'numeros':numeros, 'obras':obras}
+        obras_carusel  = Obra.objects.filter(idobra__in=[numeros[0],numeros[1], numeros[2]]) 
+        datos = {"autores" : autores, 'categorias':categorias, 'numeros':numeros, 'obras_carusel':obras_carusel, 'obras_aleatorias':obras_aleatorias}
         
 
         return render(request, "core/index.html", datos)
