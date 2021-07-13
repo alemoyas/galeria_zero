@@ -151,11 +151,12 @@ def eliminar_obra(request, id):
 
 #Agregar autor
 def form_autor(request):
-
+        max_id = sorted(list(Autor.objects.values_list('idautor', flat=True)))[-1]
         categorias = Categoria.objects.all()
         obras = Obra.objects.all()
+        autores = Autor.objects.all()
 
-        data={'form':AutorForm, 'categorias':categorias, 'obras':obras}
+        data={'form':AutorForm, 'categorias':categorias, 'obras':obras, 'max_id':max_id, 'autores':autores}
 
         if request.method == 'POST':
                 #recoge los datos
