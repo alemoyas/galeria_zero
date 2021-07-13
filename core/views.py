@@ -1,5 +1,5 @@
 from core.forms import ObraForm
-from django.shortcuts import render
+from django.shortcuts import render, redirect  
 from django.views.generic.detail import DetailView
 from .models import Autor, Categoria, Obra
 
@@ -77,21 +77,55 @@ def navbar(request):
 def contacto(request):
         return render(request, "core/vistas_extras/contacto.html")
 
+#Agregar Obra
 def form_obra(request):
 
         categorias = Categoria.objects.all()
         autores = Autor.objects.all()
 
-        datos={'form':ObraForm, 'categorias':categorias, 'autores':autores}
+        data={'form':ObraForm, 'categorias':categorias, 'autores':autores}
 
         if request.method == 'POST':
                 #recoge los datos
                 formulario = ObraForm(data=request.POST, files=request.FILES)
                 if formulario.is_valid():
                         formulario.save()
-                        datos['mensaje'] = "Guardado Correctamente"
+                        data['mensaje'] = "Guardado Correctamente"
 
-        return render(request,'core/form_obra.html',datos)
+        return render(request,'core/form_obra.html',data)
+
+#Modificar Obra
+def form_mod_obra(request,id):
+        obra = Obra.objects.get(idobra = id)
+        data = {
+                'form':ObraForm(instance=obra)
+        }
+
+        if request.method == 'POST':
+                formulario = ObraForm(data=request.POST, files=request.FILES, instance=obra)
+                if formulario.is_valid():
+                        formulario.save()
+                        data['mensaje'] = "Modificado correctamente"
+                        data['form'] = formulario        
+
+
+        return render(request,'core/form_mod_obra.html',data)
+
+def mod_obras(request):
+        obras = Obra.objects.all()
+        datos={
+                "obras":obras
+        }
+        return render(request, "core/mod_obras.html", datos)
+
+
+#Eliminar obra
+def eliminar_obra(request, id):
+        obra = Obra.objects.get(idobra = id)
+        obra.delete()
+
+        return redirect(to="mod_obras")
+
 
 
 

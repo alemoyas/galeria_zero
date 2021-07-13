@@ -6,4 +6,3 @@ class ObraForm(ModelForm):
     class Meta:
         model = Obra
         fields = ['idobra','nombre','historia','img','autor','precio','fecha']
-
