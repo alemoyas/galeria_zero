@@ -64,13 +64,11 @@ def index(request):
         categorias = Categoria.objects.all()
 
         numeros = random.sample(list(Obra.objects.values_list('idobra', flat=True)), 3)
-
-        filtro = {'idobra': numeros[0], 'idobra': numeros[1], 'idobra': numeros[2], }
-        print(filtro)
-        
-        obras =   list(Obra.objects.filter(**filtro))
+        numeros.sort()
 
 
+        #filtra por muchas cosas, sirve!
+        obras  = Obra.objects.filter(idobra__in=[numeros[0],numeros[1], numeros[2]]) 
         datos = {"autores" : autores, 'categorias':categorias, 'numeros':numeros, 'obras':obras}
         
 
