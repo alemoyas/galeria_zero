@@ -189,3 +189,8 @@ def eliminar_autor(request, id):
 
 def modificar(request):
         return render(request, "core/modificar.html")
+
+def chicago(request):
+        obras = Obra.objects.all()
+        categorias = Categoria.objects.all()
+        return render(request, "core/chicagoGaleria.html")
